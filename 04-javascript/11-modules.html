@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modules | JavaScript | CSSE3143</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code, pre { font-family: Consolas, "Courier New", monospace; }
+    pre { background: #f4f6f8; padding: 12px; overflow-x: auto; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>Modules</h1>
+  <p>A module is a file that shares code with <code>export</code>. Another file takes it with <code>import</code>. Named exports use curly braces. The default export does not.</p>
+  <p>Open this page through a local server or GitHub Pages. A module does not run from a <code>file://</code> address.</p>
+  <pre>python3 -m http.server 43123</pre>
+  <p id="out">Waiting for the module...</p>
+  <p>The functions are in <a href="greet.js">greet.js</a>.</p>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="../05-change-page-with-javascript/index.html">Next: the marked exercise</a></p>
+  </footer>
+
+  <script type="module">
+    import labTitle, { greet, course } from "./greet.js";
+    document.getElementById("out").textContent =
+      greet("Muhammad Bilal") + " · " + course + " · " + labTitle();
+  </script>
+  <script>
+    // If the module is blocked, the paragraph above never changes.
+    window.addEventListener("error", function () {
+      const out = document.getElementById("out");
+      if (out.textContent.indexOf("Hello") === -1) {
+        out.textContent = "The module did not load. Serve this folder with a local server, then open the page again.";
+      }
+    });
+  </script>
+</body>
+</html>

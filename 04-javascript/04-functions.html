@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Functions | JavaScript | CSSE3143</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code, pre { font-family: Consolas, "Courier New", monospace; }
+    pre { background: #f4f6f8; padding: 12px; }
+    .demo { border: 1px solid #d5dbe3; background: #fff; padding: 16px; margin: 16px 0; }
+    button { font: inherit; margin: 0 6px 6px 0; padding: 6px 10px; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>Functions and arrow functions</h1>
+  <p>A function is a block of code with a name. You call it when you want that work done. Parameters are the inputs. <code>return</code> sends a value back.</p>
+
+  <div class="demo">
+    <button type="button" id="declBtn">Function declaration</button>
+    <button type="button" id="exprBtn">Function expression</button>
+    <button type="button" id="arrowBtn">Arrow function</button>
+    <pre id="out">Press a button.</pre>
+  </div>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="05-arrays-and-objects.html">Next: arrays and objects</a></p>
+  </footer>
+
+  <script>
+    // Declaration. It can be called from anywhere in this script.
+    function area(width, height) {
+      return width * height;
+    }
+
+    // Expression. The function is a value stored in a variable.
+    const greet = function (name) {
+      return "Hello, " + name;
+    };
+
+    // Arrow function. Same idea, shorter syntax. One expression can skip the braces.
+    const double = (n) => n * 2;
+
+    const out = document.getElementById("out");
+
+    document.getElementById("declBtn").addEventListener("click", function () {
+      out.textContent = "area(5, 4) = " + area(5, 4);
+    });
+
+    document.getElementById("exprBtn").addEventListener("click", function () {
+      out.textContent = greet("Muhammad Bilal");
+    });
+
+    document.getElementById("arrowBtn").addEventListener("click", function () {
+      out.textContent = "double(6) = " + double(6);
+    });
+  </script>
+</body>
+</html>

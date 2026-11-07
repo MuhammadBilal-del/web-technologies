@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arrays and objects | JavaScript | CSSE3143</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code, pre { font-family: Consolas, "Courier New", monospace; }
+    pre { background: #f4f6f8; padding: 12px; overflow-x: auto; white-space: pre-wrap; }
+    button { font: inherit; margin: 0 6px 6px 0; padding: 6px 10px; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>Arrays and objects</h1>
+  <p>An array is an ordered list. Index 0 is the first item. An object is a set of named properties. A method is a function stored as a property. Inside a method, <code>this</code> is the object.</p>
+  <p><code>map</code> builds a new array by changing every item. <code>filter</code> keeps the items that pass a test. <code>reduce</code> folds the array into one value.</p>
+
+  <button type="button" id="run">Run</button>
+  <pre id="out"></pre>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="06-es6.html">Next: ES6</a></p>
+  </footer>
+
+  <script>
+    document.getElementById("run").addEventListener("click", function () {
+      let topics = ["HTML", "CSS", "Bootstrap", "JavaScript"];
+      topics.push("React");
+
+      let student = {
+        name: "Muhammad Bilal",
+        roll: "L1F22BSCS1040",
+        course: "CSSE3143",
+        label: function () {
+          return this.name + " (" + this.roll + ")";
+        }
+      };
+
+      let marks = [70, 85, 64, 90];
+      let upper = topics.map(function (item) {
+        return item.toUpperCase();
+      });
+      let longNames = topics.filter(function (item) {
+        return item.length > 4;
+      });
+      let total = marks.reduce(function (sum, mark) {
+        return sum + mark;
+      }, 0);
+
+      let lines = [
+        "topics: " + topics.join(", "),
+        "first topic: " + topics[0],
+        "length: " + topics.length,
+        "student.label(): " + student.label(),
+        "student.course: " + student.course,
+        "map to upper case: " + upper.join(", "),
+        "filter length > 4: " + longNames.join(", "),
+        "reduce marks to a total: " + total
+      ];
+      document.getElementById("out").textContent = lines.join("\n");
+    });
+  </script>
+</body>
+</html>
