@@ -1,0 +1,9 @@
+/* External style sheet.
+   One file can style many pages. Link it from the head:
+   <link rel="stylesheet" href="external.css"> */
+
+.external {
+  color: #ffffff;
+  background-color: #16324f;
+  padding: 12px;
+}

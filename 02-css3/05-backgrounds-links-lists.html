@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Backgrounds, links, lists | CSS3 | CSSE3143</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f4f6f8; padding: 1px 4px; }
+    .demo { border: 1px solid #d5dbe3; background: #fff; padding: 16px; margin: 16px 0; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+
+    .photo {
+      height: 140px;
+      background-color: #16324f;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='18' fill='%23e8c872'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-position: center;
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding: 10px;
+    }
+
+    /* Link states. The order matters: link, visited, hover, active. */
+    a.state:link { color: #16324f; }
+    a.state:visited { color: #5b3a8c; }
+    a.state:hover { color: #9a3412; text-decoration: none; }
+    a.state:active { color: #b4532a; }
+
+    ul.square { list-style-type: square; }
+    ul.none { list-style-type: none; padding-left: 0; }
+    ol.roman { list-style-type: upper-roman; }
+
+    table.lab { border-collapse: collapse; width: 100%; }
+    table.lab th, table.lab td { border: 1px solid #d5dbe3; padding: 8px; text-align: left; }
+    table.lab th { background: #16324f; color: #fff; }
+    table.lab tr:nth-child(even) { background: #f4f6f8; }
+
+    ul.h-nav, ul.v-nav { list-style: none; margin: 0; padding: 0; background: #16324f; overflow: hidden; }
+    ul.h-nav li { float: left; }
+    ul.h-nav a, ul.v-nav a { display: block; color: #fff; text-decoration: none; padding: 10px 14px; }
+    ul.h-nav a:hover, ul.v-nav a:hover { background: #1d4e89; }
+    ul.v-nav { max-width: 200px; }
+    ul.v-nav a { border-bottom: 1px solid #1d4e89; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>Backgrounds, links, lists, tables, and nav bars</h1>
+
+  <h2>Background</h2>
+  <div class="demo">
+    <div class="photo">background-color, background-image, repeat</div>
+  </div>
+  <p>A linear gradient is also a background image. The advanced page draws a few of those.</p>
+
+  <h2>Link states</h2>
+  <p>Style the four states in this order: <code>a:link</code>, <code>a:visited</code>, <code>a:hover</code>, <code>a:active</code>. Hover this link.</p>
+  <div class="demo">
+    <p><a class="state" href="https://www.w3schools.com/css/css_link.asp">A link with the four states</a></p>
+  </div>
+
+  <h2>List markers</h2>
+  <div class="demo">
+    <ul class="square">
+      <li>list-style-type: square</li>
+      <li>Another item</li>
+    </ul>
+    <ol class="roman">
+      <li>upper-roman</li>
+      <li>Second</li>
+    </ol>
+    <ul class="none">
+      <li>list-style-type: none — used for menus</li>
+    </ul>
+  </div>
+
+  <h2>A styled table</h2>
+  <div class="demo">
+    <table class="lab">
+      <tr>
+        <th>Property</th>
+        <th>Job</th>
+      </tr>
+      <tr>
+        <td>border-collapse</td>
+        <td>One shared border instead of double lines</td>
+      </tr>
+      <tr>
+        <td>nth-child(even)</td>
+        <td>A background on every second row</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>Navigation bars</h2>
+  <p>A horizontal bar floats the items left. A vertical bar stacks block links. <code>overflow: hidden</code> on the horizontal list contains the floats.</p>
+  <div class="demo">
+    <ul class="h-nav">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="06-layout.html">Layout</a></li>
+      <li><a href="07-flexbox.html">Flexbox</a></li>
+    </ul>
+  </div>
+  <div class="demo">
+    <ul class="v-nav">
+      <li><a href="01-ways-to-add-css.html">Syntax</a></li>
+      <li><a href="02-selectors.html">Selectors</a></li>
+      <li><a href="04-box-model.html">Box model</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="06-layout.html">Next: layout</a></p>
+  </footer>
+</body>
+</html>

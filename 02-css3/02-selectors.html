@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selectors | CSS3 | CSSE3143</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f4f6f8; padding: 1px 4px; }
+    .demo { border: 1px solid #d5dbe3; background: #fff; padding: 16px; margin: 16px 0; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+
+    /* Element selector — every p inside the sandbox */
+    .sandbox p { color: #1c2430; }
+
+    /* id selector — one element */
+    #special { color: #9a3412; font-weight: bold; }
+
+    /* class selector */
+    .note { background: #fff7ed; padding: 4px 8px; }
+
+    /* element and class together */
+    p.warning { color: #9f1239; }
+
+    /* grouping — one shared style */
+    .sandbox h3, .sandbox h4 { font-family: Georgia, "Times New Roman", serif; color: #16324f; }
+
+    /* descendant: any p inside .card */
+    .card p { background: #eef6ff; }
+
+    /* child: only a p that is a direct child of .card */
+    .card > p { border-left: 4px solid #16324f; }
+
+    /* adjacent sibling: a p that comes immediately after an h3 */
+    .sandbox h3 + p { font-style: italic; }
+
+    /* attribute selector */
+    input[type="text"] { background: #ecfccb; padding: 6px; }
+
+    /* pseudo-class */
+    a.demo-link:link, a.demo-link:visited { color: #16324f; }
+    a.demo-link:hover { background: #16324f; color: #fff; }
+    a.demo-link:focus { outline: 2px solid #e8c872; }
+    input:focus { outline: 2px solid #16324f; }
+
+    /* pseudo-elements */
+    p.drop::first-letter { font-size: 1.8rem; color: #9a3412; }
+    h2.marked::before { content: "Lab · "; color: #9a3412; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>Selectors</h1>
+  <p>A selector decides which elements a rule styles. The rules for this page are written against a <code>.sandbox</code> so they do not restyle the whole document.</p>
+
+  <div class="sandbox demo">
+    <h3>Element, id, and class</h3>
+    <p>This paragraph matches the element selector <code>.sandbox p</code>.</p>
+    <p id="special">This one matches the id selector <code>#special</code>.</p>
+    <p class="note">This one matches the class <code>.note</code>.</p>
+    <p class="warning">This one matches <code>p.warning</code> — the element and the class together.</p>
+    <h4>An h4 shares a font with the h3</h4>
+    <p>The paragraph right after an h3 is italic, because of the <code>h3 + p</code> combinator. This paragraph is not right after an h3, so it is not italic.</p>
+  </div>
+
+  <h2 class="marked">Combinators</h2>
+  <div class="demo">
+    <div class="card">
+      <p>Direct child of .card. It gets the blue background and the left border.</p>
+      <div>
+        <p>Nested deeper. It gets the background (<code>.card p</code>) but not the border (<code>.card &gt; p</code>).</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Attribute, pseudo-class, pseudo-element</h2>
+  <div class="demo">
+    <p><input type="text" value="text input is green"> <input type="email" value="email input is not"></p>
+    <p><a class="demo-link" href="#special">Hover, focus, and visit this link</a></p>
+    <p class="drop">The first letter of this paragraph is larger. That is the <code>::first-letter</code> pseudo-element.</p>
+  </div>
+
+  <p>The universal selector is <code>*</code>. It matches every element. A grouped selector is a comma list: <code>h3, h4 { }</code>.</p>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="03-text-and-fonts.html">Next: text and fonts</a></p>
+  </footer>
+</body>
+</html>

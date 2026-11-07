@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Box model | CSS3 | CSSE3143</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f4f6f8; padding: 1px 4px; }
+    .demo { border: 1px solid #d5dbe3; background: #fff; padding: 16px; margin: 16px 0; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+
+    /* Orange is the margin (transparent on a real page; colored here so you can see it). */
+    .margin-box { background: #f6d7a7; padding: 24px; display: inline-block; }
+    .border-box { background: #e7b3b3; border: 8px solid #a33b3b; }
+    .padding-box { background: #b7d7b0; padding: 20px; }
+    .content-box { background: #fff; padding: 8px; }
+
+    .pair { display: flex; flex-wrap: wrap; gap: 16px; }
+    .sample {
+      width: 200px;
+      padding: 20px;
+      border: 6px solid #16324f;
+      background: #e7eef6;
+    }
+    .content-sizing { box-sizing: content-box; }
+    .border-sizing { box-sizing: border-box; }
+    .shorthand { margin: 8px 24px 8px 40px; background: #fff7ed; padding: 8px; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>The box model</h1>
+  <p>Every element is a box. From the inside out: <strong>content</strong>, <strong>padding</strong>, <strong>border</strong>, <strong>margin</strong>. Padding and margin are transparent. The colors below are only there so the layers show up.</p>
+
+  <div class="demo">
+    <div class="margin-box">
+      margin
+      <div class="border-box">
+        border
+        <div class="padding-box">
+          padding
+          <div class="content-box">content</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Width, with and without border-box</h2>
+  <p>Both boxes set <code>width: 200px</code>, <code>padding: 20px</code>, and a <code>6px</code> border.</p>
+  <ul>
+    <li><code>content-box</code> (the default): the width is only the content. Padding and border are added. Total width = 200 + 20 + 20 + 6 + 6 = 252px.</li>
+    <li><code>border-box</code>: the width includes content, padding, and border. The box stays 200px.</li>
+  </ul>
+  <div class="demo">
+    <div class="pair">
+      <div class="sample content-sizing">content-box<br>wider than 200px</div>
+      <div class="sample border-sizing">border-box<br>exactly 200px</div>
+    </div>
+  </div>
+
+  <h2>Margin shorthand</h2>
+  <p><code>margin: 8px 24px 8px 40px</code> is top, right, bottom, left. Two values mean vertical, then horizontal. One value means all four sides. Padding uses the same shorthand.</p>
+  <div class="demo">
+    <div class="shorthand">This block uses a four-value margin. The left gap is the largest.</div>
+  </div>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="05-backgrounds-links-lists.html">Next: backgrounds, links, lists</a></p>
+  </footer>
+</body>
+</html>

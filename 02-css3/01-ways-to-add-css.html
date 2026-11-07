@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ways to add CSS | CSS3 | CSSE3143</title>
+  <link rel="stylesheet" href="external.css">
+  <style>
+    /* Internal CSS lives in the head. Use it when one page has a style of its own. */
+    body { font-family: Arial, Helvetica, sans-serif; line-height: 1.5; max-width: 820px; margin: 24px auto; padding: 0 16px; color: #1c2430; }
+    h1 { color: #16324f; font-size: 1.6rem; }
+    code { font-family: Consolas, "Courier New", monospace; background: #f4f6f8; padding: 1px 4px; }
+    .demo { border: 1px solid #d5dbe3; background: #fff; padding: 16px; margin: 16px 0; }
+    .internal { color: #14532d; background: #dcfce7; padding: 12px; }
+    /* Same class as external.css. This rule comes later, so the background changes.
+       The color and padding from the file still apply. */
+    .external { background-color: #1d4e89; }
+    .important-demo { color: #16324f !important; }
+    footer { margin-top: 28px; color: #5c6775; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <p><a href="../index.html">Course home</a></p>
+  <h1>Three ways to add CSS</h1>
+  <p>A CSS rule is a selector plus declarations. Each declaration is a property, a colon, a value, and a semicolon.</p>
+
+  <div class="demo">
+    <p style="color: #9a3412; background: #ffedd5; padding: 12px;">
+      Inline. The style attribute on this paragraph sets the color.
+    </p>
+    <p class="internal">Internal. The class is defined in the style element in the head.</p>
+    <p class="external">External. Color and padding come from external.css. The background was overridden by a later rule in the head.</p>
+  </div>
+
+  <h2>Cascade</h2>
+  <p>When more than one rule applies, the winner is usually:</p>
+  <ol>
+    <li>Inline style</li>
+    <li>Internal and external style sheets (the one that appears last, if specificity is equal)</li>
+    <li>The browser default</li>
+  </ol>
+  <p><code>!important</code> beats a normal rule, including a normal inline style. Use it rarely.</p>
+  <div class="demo">
+    <p class="important-demo" style="color: crimson;">
+      The style attribute says crimson. The stylesheet says navy with !important, so the text is navy.
+    </p>
+  </div>
+
+  <p>Comments in CSS start with <code>/*</code> and end with <code>*/</code>. HTML comments use <code>&lt;!-- --&gt;</code>. The browser ignores both.</p>
+
+  <footer>
+    <p>Muhammad Bilal · L1F22BSCS1040 · <a href="02-selectors.html">Next: selectors</a></p>
+  </footer>
+</body>
+</html>
